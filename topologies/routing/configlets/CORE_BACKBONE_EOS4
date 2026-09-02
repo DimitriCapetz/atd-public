@@ -1,0 +1,29 @@
+interface Ethernet1
+   shutdown
+!
+interface Ethernet3
+   shutdown
+!
+interface Ethernet4
+   shutdown
+
+interface Ethernet6
+   switchport
+   switchport mode trunk
+   switchport trunk allowed vlan 99
+!
+vlan 99
+   name VLAN99
+!
+vrf instance VLAN99
+!
+ip routing vrf VLAN99
+!
+interface Vlan99
+   description VLAN99 BGP Handoff
+   vrf VLAN99
+   ip address 10.99.2.1/30
+!
+router bgp 65002
+   vrf VLAN99
+      neighbor 10.99.2.2 remote-as 65016

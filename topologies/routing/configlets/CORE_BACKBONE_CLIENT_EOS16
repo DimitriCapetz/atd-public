@@ -1,0 +1,56 @@
+vrf instance VLAN100
+!
+ip routing vrf VLAN100
+!
+vlan 100
+   name VLAN100
+!
+interface Ethernet1
+   description CORE
+   switchport
+   switchport mode trunk
+   switchport trunk allowed vlan 99,100,102
+!
+interface Vlan100
+   description VLAN100 Client Interface
+   vrf VLAN100
+   ip address 10.100.100.16/24
+
+vrf instance VLAN102
+!
+ip routing vrf VLAN102
+!
+ip route vrf VLAN102 0.0.0.0/0 10.102.102.1
+!
+vlan 102
+   name VLAN102
+!
+interface Vlan102
+   description VLAN102 Client Interface
+   vrf VLAN102
+   ip address 10.102.102.16/24
+
+vrf instance VLAN99
+!
+ip routing vrf VLAN99
+!
+vlan 99
+   name VLAN99
+!
+interface Ethernet1
+   switchport trunk allowed vlan 99,100,102
+!
+interface Vlan99
+   description VLAN99 BGP Handoff
+   vrf VLAN99
+   ip address 10.99.2.2/30
+!
+interface Loopback99
+   description VLAN99 Advertised Loopback
+   vrf VLAN99
+   ip address 99.99.99.16/32
+!
+router bgp 65016
+   vrf VLAN99
+      neighbor 10.99.2.1 remote-as 65002
+      network 99.99.99.16/32

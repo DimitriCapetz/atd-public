@@ -1,0 +1,8 @@
+interface Ethernet2
+   shutdown
+!
+interface Ethernet4
+   shutdown
+!
+interface Ethernet5
+   shutdown

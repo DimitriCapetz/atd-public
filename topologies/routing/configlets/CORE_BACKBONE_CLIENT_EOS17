@@ -1,0 +1,31 @@
+vrf instance VLAN100
+!
+ip routing vrf VLAN100
+!
+vlan 100
+   name VLAN100
+!
+interface Ethernet1
+   description CORE
+   switchport
+   switchport mode trunk
+   switchport trunk allowed vlan 100,101
+!
+interface Vlan100
+   description VLAN100 Client Interface
+   vrf VLAN100
+   ip address 10.100.100.17/24
+
+vrf instance VLAN101
+!
+ip routing vrf VLAN101
+!
+ip route vrf VLAN101 0.0.0.0/0 10.101.101.1
+!
+vlan 101
+   name VLAN101
+!
+interface Vlan101
+   description VLAN101 Client Interface
+   vrf VLAN101
+   ip address 10.101.101.17/24
