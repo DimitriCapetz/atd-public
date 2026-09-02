@@ -1,7 +1,7 @@
 ---
 lab_list:
   core:
-    description: "Core Backbone Lab - Reset to Baseline (reset)"
+    description: "Core Backbone Lab - Prepare for Core Backbone Lab (core)"
   reset:
     description: "Reset All Devices to Base IPv4 (reset)"
 
