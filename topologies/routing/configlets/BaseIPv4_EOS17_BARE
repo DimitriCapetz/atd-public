@@ -1,4 +1,4 @@
-hostname eos17
+hostname SITE1-CLIENT
 !
 interface Management1
    ip address 192.168.0.26/24

@@ -1,4 +1,4 @@
-hostname eos20
+hostname SITE2-CLIENT-2
 !
 interface Management1
    ip address 192.168.0.29/24

@@ -1,4 +1,4 @@
-hostname eos11
+hostname SITE5-CORE-1
 !
 interface Management1
    ip address 192.168.0.20/24

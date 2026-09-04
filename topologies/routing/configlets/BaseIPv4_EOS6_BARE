@@ -1,4 +1,4 @@
-hostname eos6
+hostname SITE4-CORE-1
 !
 interface Management1
    ip address 192.168.0.15/24

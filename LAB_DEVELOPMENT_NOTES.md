@@ -105,6 +105,12 @@ These are proposals only; the target topology, audience, and exact technologies 
 - VLAN 99 is carried on the client trunks in VRF VLAN99.
 - Client loopbacks 99.99.99.16/32 and 99.99.99.18/32 are advertised through the respective eBGP sessions.
 
+## Device hostname convention
+
+- Core hostnames: eos1/eos2 = SITE1-CORE-1/-2; eos3/eos4 = SITE2-CORE-1/-2; eos8/eos14 = SITE3-CORE-1/-2; eos6/eos13 = SITE4-CORE-1/-2; eos11/eos12 = SITE5-CORE-1/-2.
+- Client hostnames: eos17 = SITE1-CLIENT; eos16/eos20 = SITE2-CLIENT-1/-2; eos15/eos18 = SITE3-CLIENT-1/-2.
+- Unused/support nodes eos5, eos7, eos9, eos10, and eos19 retain their EOS hostnames.
+
 ## Decisions
 
 - The Core Backbone implementation is ready for commit and push.
